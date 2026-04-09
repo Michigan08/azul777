@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Para Azul 💙</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #0f2027, #2c5364);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #e0f7ff;
+            padding: 50px;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 50px;
+            animation: fadeInDown 2s ease;
+        }
+
+        .letra {
+            font-size: 28px;
+            margin: 15px 0;
+            opacity: 0;
+            animation: aparecer 1s forwards;
+        }
+
+        .letra:nth-child(1) { animation-delay: 1s; }
+        .letra:nth-child(2) { animation-delay: 2s; }
+        .letra:nth-child(3) { animation-delay: 3s; }
+        .letra:nth-child(4) { animation-delay: 4s; }
+
+        .letra span {
+            font-size: 40px;
+            font-weight: bold;
+            color: #4fc3f7;
+        }
+
+        .frase {
+            margin-top: 40px;
+            font-size: 22px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            opacity: 0;
+            animation: aparecer 2s forwards;
+            animation-delay: 5s;
+        }
+
+        img {
+            margin-top: 30px;
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.5);
+            opacity: 0;
+            transform: scale(0.8);
+            animation: zoomIn 2s forwards;
+            animation-delay: 6s;
+        }
+
+        p {
+            margin-top: 30px;
+            font-size: 24px;
+            opacity: 0;
+            animation: aparecer 2s forwards;
+            animation-delay: 7s;
+        }
+
+        /* NUEVA FRASE FINAL */
+        .final {
+            margin-top: 50px;
+            font-size: 22px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeFinal 3s forwards;
+            animation-delay: 8s;
+        }
+
+        @keyframes fadeFinal {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animaciones */
+        @keyframes aparecer {
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Corazones */
+        .corazon {
+            position: fixed;
+            bottom: -10px;
+            color: #4fc3f7;
+            animation: flotar 5s linear infinite;
+            font-size: 20px;
+        }
+
+        @keyframes flotar {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-800px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Para Azul 💙</h1>
+    <button onclick="document.getElementById('musica').play()">
+💙 Reproducir música
+</button>
+
+<audio id="musica" loop>
+    <source src="JAPAN.mp3" type="audio/mpeg">
+</audio>
+
+    <div class="letra"><span>A</span>mor que ilumina cada momento a tu lado.</div>
+    <div class="letra"><span>Z</span>onas de mi corazón que solo tú haces felices.</div>
+    <div class="letra"><span>U</span>niverso entero no se compara contigo.</div>
+    <div class="letra"><span>L</span>uz de mi vida, la razón de mi sonrisa.</div>
+
+    <div class="frase">
+        Pude haber hecho el esfuerzo de apoyarte del modo en el que tú siempre me apoyaste.
+        Tomamos decisiones, pudimos haber tomado mejores, pero no me arrepiento.
+        Tú fuiste todo para mí.
+    </div>
+
+    <img src="azul.jpg" alt="Nuestra foto">
+
+    <p>Te amo muchísimo 💙</p>
+
+    <div class="final">
+        Azul, nos conocimos hace poco y en ese tiempo me di cuenta que eres lo que más anhelé,
+        lo que tanto busqué. Eres ese algo especial, esa luz que llegó a mi vida. Será lo hermosa,
+        o tu manera de ser, o será todo eso… no lo sé, pero sí sé lo importante que eres para mí.
+        Lo mucho que te amo. Desde que llegaste a mi vida me motivas cada día a mejorar, me haces
+        sonreír sin razón y me das una felicidad que no sabía que podía sentir. No hay palabras que
+        me ayuden a expresar lo que siento, pero sé que lo eres todo para mí. Y sin darme cuenta,
+        en mi mundo estás presente en cada momento, en cada rincón. Te amo más de lo que puedo
+        expresar, y ese sentimiento crece cada vez más 💙
+    </div>
+
+    <script>
+        function crearCorazon() {
+            const corazon = document.createElement("div");
+            corazon.classList.add("corazon");
+            corazon.innerHTML = "💙";
+            corazon.style.left = Math.random() * 100 + "vw";
+            corazon.style.fontSize = (10 + Math.random() * 20) + "px";
+            document.body.appendChild(corazon);
+
+            setTimeout(() => {
+                corazon.remove();
+            }, 5000);
+        }
+
+        setInterval(crearCorazon, 300);
+    </script>
+
+</body>
+</html>
